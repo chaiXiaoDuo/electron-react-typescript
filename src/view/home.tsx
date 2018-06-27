@@ -4,59 +4,30 @@
 * 2018-06-21 17:16:57
 ****************************************/
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
-import * as topActions from '../store/actions/topActions'
 
-import logo from '../logo.svg'
+import Version from './version'
+
+import TimeUtils from '../lib/TimeUtils'
+import Utils from '../lib/Utils'
+const utils = new Utils()
+const timeUtils = new TimeUtils()
 
 
-class Home extends React.Component <any,any> {
-    componentWillMount (){}
+export default class Home extends React.PureComponent <any,any> {
+    componentWillMount (){
+        console.log(timeUtils.getTime())
+        utils.changeTitle('老铁,没毛病')
+    }
     constructor(props: any){
         super(props)
-        this.state = {
-            a: 1
-        }
-    }
-
-    private test2() {
-        alert(2)
-    }
-
-    private addState (a: number){
-        if(typeof a != 'number') throw "wrong type of state a";
-        a += 1
-        this.setState({
-            a: a
-        })
     }
 
     public render() {
-        const {actions} = this.props
-        const store = this.props.state.toJS()
         return (
-            <div>
-                <div onClick={
-                    () => 
-                    {
-                        actions.getVersion(store.version)
-                        this.addState(this.state.a)
-                    }
-                } style={{width: '100px',height: '100px',backgroundColor: 'red'}}>{this.state.a}</div>
-                {store.version}
-                <img src={logo} alt="" onClick={this.test2}/>
+            <div className="home" style={{width: utils.SCREEN_WIDTH, height: utils.SCREEN_HEIGHT}}>
+                <Version isShow={true}/>
+                {timeUtils.getTime()}
             </div>
         )
     }
 }
-
-
-export default connect(
-    (state:any):object => {
-		return {state: state.top}
-	},
-	(dispath:any):object => {
-        return {actions: bindActionCreators(topActions,dispath)}
-	}
-)(Home)

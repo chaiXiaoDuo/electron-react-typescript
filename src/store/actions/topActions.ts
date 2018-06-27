@@ -5,12 +5,11 @@
 ****************************************/
 
 import * as actionType from './actionType'
+import * as cf from '../../config/config'
 
-export function getVersion(version: number):any {
+
+export function getVersion():any {
     return (dispatch: any) => {
-        if(typeof version != 'number')  
-            throw "wrong type for version";
-        version += 1
-        dispatch({type: actionType.GET_VERSION, value: version})
+        dispatch({type: actionType.GET_VERSION, value: cf.version})
     }
 }

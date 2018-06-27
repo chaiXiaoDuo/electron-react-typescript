@@ -8,7 +8,8 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import store from './store'
 import Home from './view/home'
-import '~antd/dist/antd.css'
+import 'antd/dist/antd.css'
+import './scss/style.scss'
 class App extends React.Component {
 
 	componentWillMount(){

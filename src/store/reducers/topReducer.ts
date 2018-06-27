@@ -8,18 +8,17 @@ import * as Immutable from 'immutable'
 
 interface Action {
     type: string;
-    value: number;
+    value: string;
 }
 
 const State = Immutable.fromJS({
-    version: 1
+    version: '0.0.1'
 })
 
 const topReducer = ( state = State, action: Action ):any => {
     switch (action.type) {
         case actionType.GET_VERSION:
             return state.set('version', action.value)
-        break;
     }
     return state
 }
