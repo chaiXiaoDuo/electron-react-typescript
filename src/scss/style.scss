@@ -1,6 +1,8 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: '微软雅黑';
+    font-size: 14px;
 }
 body,html{
     width: 100%;
@@ -11,3 +13,9 @@ body,html{
 
 
 @import './_home.scss';
+
+@import './_leftBar.scss';
+
+@import './_bottomBar.scss';
+
+@import './_center.scss';

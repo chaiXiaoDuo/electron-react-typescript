@@ -1,0 +1,16 @@
+.bottomBar{
+    
+    .version {
+        width: 60px;
+        cursor: pointer;
+        line-height: 26px;
+        font-size: 12px;
+        text-align: center;
+    }
+    .active{
+        background-color: #656565;
+    }
+    .bottomButtonBar {
+        width: calc(100% - 60px);
+    }
+}

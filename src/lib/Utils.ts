@@ -1,5 +1,5 @@
 /****************************************
-* 工具类
+* Utility class
 * created by chaixiaoduo@126.com
 * 2018-06-26 14:58:19
 ****************************************/
@@ -8,7 +8,7 @@ import * as cf from '../config/config'
 
 export default class utils {
 
-    // 屏幕宽高
+    // Wide screen high
     public SCREEN_WIDTH: string
     public SCREEN_HEIGHT: string
 

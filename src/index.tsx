@@ -1,5 +1,5 @@
 /****************************************
-* 项目主文件 入口文件
+* Project master file entry file
 * created by chaixiaoduo@126.com
 * 2018-06-21 17:17:22
 ****************************************/
@@ -10,10 +10,17 @@ import store from './store'
 import Home from './view/home'
 import 'antd/dist/antd.css'
 import './scss/style.scss'
+import * as api from './config/connect'
+import { ipcRenderer } from "electron";
+
 class App extends React.Component {
 
 	componentWillMount(){
 		console.log(process.env.NODE_ENV)
+		// Listen for messages sent by the main process
+		ipcRenderer.on(api.SHOW_MAIN_MESSAGE,(e:any, msg: any):void => {
+			console.log(msg)
+		})
 	}
 
 	public render() {

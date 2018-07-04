@@ -1,15 +1,18 @@
 /****************************************
-* 项目主进程 入口文件
+* Project master process entry file
 * created by chaixiaoduo@126.com
 * 2018-06-13 14:19:31
 ****************************************/
 const { app } = require('electron')
 
-const { createWindow } = require('./base/create')
+const { createWindow } = require('./src/base/create')
 
-let mainWindow
+global.mainWindow = null
 
-app.on('ready', createWindow)
+app.on('ready', function (){
+	createWindow()
+})
+
 app.on('window-all-closed', function () {
 	if (process.platform !== 'darwin') {
 		app.quit()
@@ -17,7 +20,7 @@ app.on('window-all-closed', function () {
 })
 
 app.on('activate', function () {
-	if (mainWindow === null) {
+	if (global.mainWindow === null) {
 		createWindow()
 	}
 })

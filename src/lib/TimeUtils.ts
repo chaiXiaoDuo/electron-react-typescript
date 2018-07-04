@@ -1,12 +1,12 @@
 /****************************************
-* 时间类工具    
+* Time tool    
 * created by chaixiaoduo@126.com
 * 2018-06-27 11:34:31
 ****************************************/
 
 export default class TimeUtils {
 
-    // 内置当前时间对象
+    // Built-in current time objects
     private nowTime: number
 
     constructor() {

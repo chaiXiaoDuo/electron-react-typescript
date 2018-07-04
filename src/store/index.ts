@@ -1,5 +1,5 @@
 /****************************************
-* 创建store对象,以后在在此处添加 promise logger 中间件`
+* Create the store object and add the promise logger middleware here later
 * created by chaixiaoduo@126.com
 * 2018-06-21 17:16:17
 ****************************************/
