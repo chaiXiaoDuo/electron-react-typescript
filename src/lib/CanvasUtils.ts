@@ -5,7 +5,7 @@
 ****************************************/
 import * as cf from '../config/config'
 import store from '../store'
-export default class CanvasUtils{
+export default class CanvasUtils {
 
     /**
      * Draw a grid

@@ -6,20 +6,43 @@
 
 import * as React from 'react'
 import MainCanvas from './canvas/MainCanvas'
-interface Props {
-    c: string
+import EmptyCenter from './emptyCenter'
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as topActions from '../../store/actions/topActions'
+interface StoreState {
+    toJS: any
 }
 
-export default class CenterBar extends React.PureComponent<Props,any> {
+interface Props {
+    c: string
+    state?: StoreState | any
+}
+
+class CenterBar extends React.PureComponent<Props> {
     constructor(props: Props){
         super(props)
     }
 
     public render (){
+        const state = this.props.state.toJS()
         return (
             <div className="center">
-                <MainCanvas></MainCanvas>
+                {
+                    state.startWork ?
+                    <MainCanvas></MainCanvas> :
+                    <EmptyCenter></EmptyCenter>
+                }
             </div>
         )
     }
 }
+
+export default connect(
+    (state: any):object => {
+        return {state: state.top}
+    },
+    (dispatch: any):object => {
+        return {actions: bindActionCreators(topActions,dispatch)}
+    }
+)(CenterBar)

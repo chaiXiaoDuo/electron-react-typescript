@@ -11,6 +11,7 @@ import Home from './view/home'
 import 'antd/dist/antd.css'
 import './scss/style.scss'
 import * as api from './config/connect'
+import './scss/font-awesome.min.css'
 import { ipcRenderer } from "electron";
 
 class App extends React.Component {

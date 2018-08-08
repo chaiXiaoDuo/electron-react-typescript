@@ -27,3 +27,32 @@ export function upDateGrid(w:number):any {
         dispatch({type: actionType.BACKGROUND_GRID, value: w})
     }
 }
+
+/**
+ * update main workstage
+ * @param {boolean} b 
+ */
+export function updateStartWork(b:boolean):any {
+    return (dispatch: any) => {
+        dispatch({type: actionType.START_WORK_AND_SHOW_CANVAS,value: b})
+    }
+}
+
+
+/**
+ * 添加新的canvas组件
+ */
+export function createNewCanvasView(k:number):any{
+    return (dispatch: any) => {
+        dispatch({type: actionType.CREATE_NEW_CANVAS_VIEW, value: cf.NEW_ICON_ARRAY[k]})
+    }
+}
+
+/**
+ * 删除原有的canvas组件
+ */
+export function deleteCanvasView (k: number): any {
+    return (dispatch: any) => {
+        dispatch({type: actionType.DELETE_CANVAS_VIEW,value: k})
+    }
+}

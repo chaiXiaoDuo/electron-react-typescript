@@ -17,7 +17,8 @@ const createWindow = function () {
 		devTools: true, // Start debugging mode
 		fullscreen: false,
 		darkTheme: true,
-		fullscreenWindowTitle: true
+		fullscreenWindowTitle: true,
+		
 	})
 
 	// Development mode load http address

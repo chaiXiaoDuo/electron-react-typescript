@@ -1,8 +1,77 @@
+$center: calc(50% - 2px);
+$offset: -3px;
+.ne-resize{
+    cursor: ne-resize;
+}
+.nw-resize{
+    cursor: nw-resize;
+}
+.n-resize{
+    cursor: n-resize;
+}
+.w-resize{
+    cursor: w-resize;
+}
 .center{
     .mainCan{
         width: 100%;
         height: 100%;
-        cursor: move;
         overflow: hidden;
+        position: relative;
+        .stretch{
+            position: absolute;
+            top: 0;
+            left: 0;
+            .stretch-span{
+                display: inline-block;
+                border: 1px solid #1a1a1a;
+                border-radius: 6px;
+                width: 6px;
+                height: 6px;
+                position:absolute;
+                overflow: hidden;
+            }
+            .lt{
+                top: $offset;
+                left: $offset;
+                @extend .nw-resize;
+            }
+            .t{
+                left: $center;
+                top: $offset;
+                @extend .n-resize;
+            }
+            .rt{
+                right: $offset;
+                top: $offset;
+                @extend .ne-resize;
+            }
+            .r{
+                right: $offset;
+                top: $center;
+                @extend .w-resize;
+            }
+            .rb{
+                right: $offset;
+                bottom: $offset;
+                @extend .nw-resize;
+            }
+            .b{
+                left: $center;
+                bottom: $offset;
+                @extend .n-resize;
+            }
+            .lb{
+                left: $offset;
+                bottom: $offset;
+                @extend .ne-resize;
+            }
+            .l{
+                left: $offset;
+                bottom: $center;
+                @extend .w-resize;
+            }
+        }
+        
     }
 }

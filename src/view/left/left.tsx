@@ -7,11 +7,20 @@
 import * as React from 'react'
 import * as cf from '../../config/config'
 import LeftButton from './buttonComponent/leftButton'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as topActions from '../../store/actions/topActions'
 import { ipcRenderer } from 'electron'
+import { StoreState } from '../../lib/interface'
 import * as api from '../../config/connect'
 
+interface StoreActions {
+    updateStartWork: () => void
+}
 interface Props {
-    l: string
+    l: string,
+    actions?: StoreActions | any
+    state?: StoreState | any
 }
 
 interface State {
@@ -20,7 +29,7 @@ interface State {
 
 
 
-export default class LeftBar extends React.PureComponent<Props, State> {
+class LeftBar extends React.PureComponent<Props, State> {
 
 
     componentWillMount (){
@@ -48,7 +57,7 @@ export default class LeftBar extends React.PureComponent<Props, State> {
     }
 
     private plusSquare() {
-        console.log('plusSquare')
+        this.props.actions.updateStartWork(true)
     }
 
     public render (){
@@ -72,3 +81,13 @@ export default class LeftBar extends React.PureComponent<Props, State> {
     }
 
 }
+
+
+export default connect(
+    (state: any):object => {
+        return {state: state.top}
+    },
+    (dispatch: any):object => {
+        return {actions: bindActionCreators(topActions,dispatch)}
+    }
+)(LeftBar)

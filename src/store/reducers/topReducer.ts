@@ -15,7 +15,9 @@ const State = Immutable.fromJS({
     version: '0.0.1',
     mainCanvasWidth: 1920,
     mainCanvasHeight: 1080,
-    backgroundGird: 10
+    backgroundGird: 10,
+    startWork: true,
+    canvasTemplate: ['fa-square-o']
 })
 
 const topReducer = ( state = State, action: Action ):any => {
@@ -28,6 +30,12 @@ const topReducer = ( state = State, action: Action ):any => {
             return state.set('mainCanvasWidth', action.value)
         case actionType.BACKGROUND_GRID: 
             return state.set('backgroundGird',action.value)
+        case actionType.START_WORK_AND_SHOW_CANVAS:
+            return state.set('startWork',action.value)
+        case actionType.CREATE_NEW_CANVAS_VIEW:
+            return state.set('canvasTemplate',state.get('canvasTemplate').push(action.value))
+        case actionType.DELETE_CANVAS_VIEW:
+            return state.set('canvasTemplate',state.get('canvasTemplate').replace(action.value,1))
     }
     return state
 }

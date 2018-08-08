@@ -4,7 +4,7 @@
 * 2018-07-03 15:17:46
 ****************************************/
 
-// export file to localhost
+// export file to local
 const EXPORT_FILE = 'EXPORT_FILE'
 
 // show the main progress message

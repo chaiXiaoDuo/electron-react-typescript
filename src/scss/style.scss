@@ -11,6 +11,19 @@ body,html{
     background-color:#282828;
 }
 
+.ant-modal-content{
+
+    .new-ele-icon{
+        text-align: center;
+        line-height: 60px;
+        i{
+            font-size: 28px;
+            cursor: pointer;
+            color: red; 
+        }
+    }
+}
+
 
 @import './_home.scss';
 
